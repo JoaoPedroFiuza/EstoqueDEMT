@@ -4,7 +4,7 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <h1>estoqueDemt</h1>
+        <h1>Estoque Demt</h1>
         <span>Controle de Equipamentos</span>
       </div>
 
