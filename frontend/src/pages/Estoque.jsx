@@ -1,27 +1,5 @@
-function Estoque() {
-  const equipamentos = [
-    {
-      patrimonio: '001245',
-      equipamento: 'Dell OptiPlex 3080',
-      status: 'Em estoque',
-      funcionamento: 'Funcionando',
-      problema: '—',
-    },
-    {
-      patrimonio: '001246',
-      equipamento: 'Lenovo ThinkCentre M720',
-      status: 'Em manutenção',
-      funcionamento: 'Com problema',
-      problema: 'Não liga',
-    },
-    {
-      patrimonio: '001247',
-      equipamento: 'HP ProDesk 400',
-      status: 'Em estoque',
-      funcionamento: 'Não testado',
-      problema: '—',
-    },
-  ]
+function Estoque({ equipamentos }) {
+   
 
   return (
     <main>
