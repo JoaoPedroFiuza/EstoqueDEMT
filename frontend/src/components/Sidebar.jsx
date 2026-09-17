@@ -4,8 +4,10 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <h1>Estoque Demt</h1>
-        <span>Controle de Equipamentos</span>
+        <h1>
+          Estoque <span>DEMT</span>
+        </h1>
+        <p>Gestão de equipamentos</p>
       </div>
 
       <nav className="menu">

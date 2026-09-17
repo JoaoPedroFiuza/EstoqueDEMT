@@ -1,15 +1,21 @@
+import { useNavigate } from 'react-router-dom'
+
 function Estoque({ equipamentos }) {
-   
+  const navigate = useNavigate()
 
   return (
     <main>
       <div className="page-header">
         <div>
           <h1>Estoque</h1>
-          <p>Controle dos equipamentos disponíveis.</p>
+          <p>Controle dos equipamentos cadastrados.</p>
         </div>
 
-        <button className="primary-button">
+        <button
+          type="button"
+          className="primary-button"
+          onClick={() => navigate('/cadastro')}
+        >
           + Cadastrar equipamento
         </button>
       </div>
@@ -18,25 +24,36 @@ function Estoque({ equipamentos }) {
         <table>
           <thead>
             <tr>
-              <th>Patrimônio</th>
+              <th>Tombo</th>
               <th>Equipamento</th>
+              <th>Tipo</th>
+              <th>Setor de origem</th>
               <th>Status</th>
-              <th>Funcionamento</th>
-              <th>Problema</th>
               <th>Ações</th>
             </tr>
           </thead>
 
           <tbody>
             {equipamentos.map((equipamento) => (
-              <tr key={equipamento.patrimonio}>
-                <td>{equipamento.patrimonio}</td>
+              <tr key={equipamento.tombo}>
+                <td>{equipamento.tombo}</td>
+
                 <td>{equipamento.equipamento}</td>
+
+                <td>{equipamento.categoria}</td>
+
+                <td>{equipamento.setorOrigem}</td>
+
                 <td>{equipamento.status}</td>
-                <td>{equipamento.funcionamento}</td>
-                <td>{equipamento.problema}</td>
+
                 <td>
-                  <button className="action-button">
+                  <button
+                    type="button"
+                    className="action-button"
+                    onClick={() =>
+                      navigate(`/detalhes/${equipamento.tombo}`)
+                    }
+                  >
                     Ver detalhes
                   </button>
                 </td>

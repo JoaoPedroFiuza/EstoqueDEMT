@@ -10,29 +10,38 @@ import Estoque from './pages/Estoque'
 import Cadastro from './pages/Cadastro'
 import Manutencao from './pages/Manutencao'
 import Historico from './pages/Historico'
+import Detalhes from './pages/Detalhes'
 
 function App() {
   const [equipamentos, setEquipamentos] = useState([
     {
-      patrimonio: '001245',
+      tomboCompleto: '202601245',
+      tombo: '01245',
       equipamento: 'Dell OptiPlex 3080',
+      categoria: 'Desktop',
+      setorOrigem: 'Tecnologia',
       status: 'Em estoque',
-      funcionamento: 'Funcionando',
-      problema: '—',
+      observacoes: 'Equipamento disponível no estoque.',
     },
+
     {
-      patrimonio: '001246',
+      tomboCompleto: '202601246',
+      tombo: '01246',
       equipamento: 'Lenovo ThinkCentre M720',
+      categoria: 'Desktop',
+      setorOrigem: 'Tecnologia',
       status: 'Em manutenção',
-      funcionamento: 'Com problema',
-      problema: 'Não liga',
+      observacoes: 'Aguardando avaliação técnica.',
     },
+
     {
-      patrimonio: '001247',
+      tomboCompleto: '202601247',
+      tombo: '01247',
       equipamento: 'HP ProDesk 400',
+      categoria: 'Desktop',
+      setorOrigem: 'Tecnologia',
       status: 'Em estoque',
-      funcionamento: 'Não testado',
-      problema: '—',
+      observacoes: 'Equipamento recebido recentemente.',
     },
   ])
 
@@ -42,23 +51,36 @@ function App() {
         <Sidebar />
 
         <div className="content">
-        <Routes>
-  <Route path="/" element={<Dashboard />} />
+          <Routes>
+            {/* Dashboard */}
+            <Route path="/" element={<Dashboard />} />
 
-  <Route
-    path="/estoque"
-    element={<Estoque equipamentos={equipamentos} />}
-  />
+            {/* Estoque */}
+            <Route
+              path="/estoque"
+              element={<Estoque equipamentos={equipamentos} />}
+            />
 
-  <Route
-    path="/cadastro"
-    element={<Cadastro setEquipamentos={setEquipamentos} />}
-  />
+            {/* Cadastro */}
+            <Route
+              path="/cadastro"
+              element={
+                <Cadastro setEquipamentos={setEquipamentos} />
+              }
+            />
 
-  <Route path="/manutencao" element={<Manutencao />} />
+            {/* Manutenção */}
+            <Route path="/manutencao" element={<Manutencao />} />
 
-  <Route path="/historico" element={<Historico />} />
-</Routes>
+            {/* Histórico */}
+            <Route path="/historico" element={<Historico />} />
+
+            {/* Detalhes */}
+            <Route
+              path="/detalhes/:tombo"
+              element={<Detalhes equipamentos={equipamentos} />}
+            />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>
